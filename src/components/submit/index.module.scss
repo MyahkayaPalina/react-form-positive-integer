@@ -1,0 +1,19 @@
+@import '../../styles/variables';
+
+.submit {
+  background: $sapphire-splendour;
+  border: none;
+  border-radius: $rounding;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  outline: none;
+  padding: 15px 20px;
+  text-transform: uppercase;
+
+  &--disabled {
+    color: $dhusar-grey;
+    cursor: default;
+    opacity: 0.7;
+  }
+}

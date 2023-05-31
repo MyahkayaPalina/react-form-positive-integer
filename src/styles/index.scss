@@ -1,0 +1,15 @@
+@import './variables';
+
+body {
+  align-items: center;
+  background: $evening-cityscape;
+  color: white;
+  display: flex;
+  font-family: 'Helvetica Neue', sans-serif;
+  font-size: 14px;
+  flex-direction: column;
+  justify-content: center;
+  letter-spacing: 0.5px;
+  margin: 0;
+  padding: 5rem 3rem;
+}
