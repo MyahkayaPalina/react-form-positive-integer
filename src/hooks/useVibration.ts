@@ -1,26 +1,25 @@
 import { useState, useCallback } from 'react';
 
 let addVibration: number;
-let removeVibration: number;
 
 export const useVibration = (initialValue: boolean) => {
   const [vibrate, setVibration] = useState(initialValue);
 
-  const addTimeout = useCallback((time: number, value: boolean) => (
-    window.setTimeout(() => {
-      setVibration(value);
-    }, time)
-  ), []);
-
   const handleVibration = useCallback(() => {
-    setVibration(() => false);
-
     clearTimeout(addVibration);
-    clearTimeout(removeVibration);
 
-    addVibration = addTimeout(0, true);
-    removeVibration = addTimeout(1000, false);
-  }, [addTimeout]);
+    addVibration = window.setTimeout(() => {
+      if (vibrate) { setVibration(false); }
+
+      window.setTimeout(() => {
+        setVibration(true);
+      }, 100);
+
+      window.setTimeout(() => {
+        setVibration(false);
+      }, 1100);
+    }, 100);
+  }, [vibrate]);
 
   return { vibrate, handleVibration };
 };
